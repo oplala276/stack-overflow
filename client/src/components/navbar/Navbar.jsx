@@ -6,16 +6,15 @@ import Search from '../../assets/search-solid.svg'
 import Avatar from '../../components/avatar/Avatar'
 // import Button from '../../components/button/Button'
 
-
 const Navbar = () => {
   var User = null
 
   return (
-    <nav>
+    <nav className='main-nav'>
       <div className="navbar">
         <Link to = '/' className='nav-item nav-btn'>
           <img src={logo} alt = 'logo'/>
-          </Link>
+        </Link>
           <Link to ='/' className = 'nav-item nav-btn'>About</Link>
           <Link to ='/' className = 'nav-item nav-btn'>Products</Link>
           <Link to ='/' className = 'nav-item nav-btn'>For Teams</Link>
