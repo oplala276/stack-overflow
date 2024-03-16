@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom'
-import askQuestion from "../../actions/question";
+import {askQuestion} from "../../actions/question";
 import "./AskQuestions.css";
 
 

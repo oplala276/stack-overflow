@@ -1,10 +1,10 @@
-import React from 'react'
 import * as api from '../api';
 
-const askQuestion = (questiondata, navigate) => async (dispatch) => {
+export const askQuestion = (questiondata, navigate) => async (dispatch) => {
     try {
         const { data } = await api.postQuestion(questiondata);
-        dispatch({ type: 'POST_QUESTION', payload: data }) 
+        dispatch({ type: 'POST_QUESTION', payload: data })
+        dispatch(fetchAllQuestions())
         navigate('/');
     } catch (error) {
         console.log(error)
@@ -12,4 +12,12 @@ const askQuestion = (questiondata, navigate) => async (dispatch) => {
 
 }
 
-export default askQuestion
+export const fetchAllQuestions = () => async (dispatch) => {
+    try {
+        const { data } = await api.getAllQuestions()
+        dispatch({type:'FETCH_ALL_QUESTIONS', payload:data})
+    } catch (error) {
+        console.log(error)
+    }
+}
+

@@ -5,77 +5,81 @@ import downVoteImg from "../../assets/sort-down.svg";
 import Avatar from "../../components/avatar/Avatar";
 import DisplayAnswers from "./DisplayAnswers";
 import "./Questions.css";
+import { useSelector } from "react-redux";
 
 const Questiondetails = () => {
   const { id } = useParams();
 
-  var questionList = [
-    {
-      _id: "1",
-      upVotes: 3,
-      downVotes: 0,
-      noOfAnswers: 2,
-      questionTitle: "What is a Function?",
-      questionBody: "it meant to be",
-      questionTags: ["javascript", "R", "python"],
-      userPosted: "manav",
-      askedOn: "jan 1",
-      answer: [
-        {
-          answerBody: "Answer",
-          userAnswered: "kumar",
-          answeredOn: "jan 2",
-          userId: 2,
-        },
-      ],
-    },
-    {
-      _id: "3",
-      upVotes: 3,
-      downVotes: 2,
-      noOfAnswers: 2,
-      questionTitle: "What is a Function?",
-      questionBody: "it meant to be",
-      questionTags: ["javascript", "R", "python"],
-      userPosted: "manav",
-      askedOn: "jan 1",
-      answer: [
-        {
-          answerBody: "Answer",
-          userAnswered: "kumar",
-          answeredOn: "jan 2",
-          userId: 2,
-        },
-      ],
-    },
-    {
-      _id: "2",
-      upVotes: 2,
-      downVotes: 2,
-      noOfAnswers: 2,
-      questionTitle: "What is a Function?",
-      questionBody: "it meant to be",
-      questionTags: ["javascript", "R", "python"],
-      userPosted: "manav",
-      askedOn: "jan 1",
-      answer: [
-        {
-          answerBody: "Answer",
-          userAnswered: "kumar",
-          answeredOn: "jan 2",
-          userId: 2,
-        },
-      ],
-    },
-  ];
+  const questionList = useSelector(state => state.questionReducer)
+  // console.log(questionList)
+
+  // var questionList = [
+  //   {
+  //     _id: "1",
+  //     upVotes: 3,
+  //     downVotes: 0,
+  //     noOfAnswers: 2,
+  //     questionTitle: "What is a Function?",
+  //     questionBody: "it meant to be",
+  //     questionTags: ["javascript", "R", "python"],
+  //     userPosted: "manav",
+  //     askedOn: "jan 1",
+  //     answer: [
+  //       {
+  //         answerBody: "Answer",
+  //         userAnswered: "kumar",
+  //         answeredOn: "jan 2",
+  //         userId: 2,
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     _id: "3",
+  //     upVotes: 3,
+  //     downVotes: 2,
+  //     noOfAnswers: 2,
+  //     questionTitle: "What is a Function?",
+  //     questionBody: "it meant to be",
+  //     questionTags: ["javascript", "R", "python"],
+  //     userPosted: "manav",
+  //     askedOn: "jan 1",
+  //     answer: [
+  //       {
+  //         answerBody: "Answer",
+  //         userAnswered: "kumar",
+  //         answeredOn: "jan 2",
+  //         userId: 2,
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     _id: "2",
+  //     upVotes: 2,
+  //     downVotes: 2,
+  //     noOfAnswers: 2,
+  //     questionTitle: "What is a Function?",
+  //     questionBody: "it meant to be",
+  //     questionTags: ["javascript", "R", "python"],
+  //     userPosted: "manav",
+  //     askedOn: "jan 1",
+  //     answer: [
+  //       {
+  //         answerBody: "Answer",
+  //         userAnswered: "kumar",
+  //         answeredOn: "jan 2",
+  //         userId: 2,
+  //       },
+  //     ],
+  //   },
+  // ];
 
   return (
     <div className="question-details-page">
-      {questionList === null ? (
+      {questionList.data === null ? (
         <h1>No question is there...</h1>
       ) : (
         <>
-          {questionList
+          {questionList.data
             .filter((question) => question._id === id)
             .map((question) => (
               <div key={question._id}>
@@ -89,7 +93,7 @@ const Questiondetails = () => {
                         width="18"
                         className="votes-icon"
                       />
-                      <p>{question.upVotes - question.downVotes}</p>
+                      <p>{question.upVote - question.downVote}</p>
                       <img
                         src={downVoteImg}
                         alt="downvote"

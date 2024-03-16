@@ -1,36 +1,40 @@
 import React from 'react'
-import {useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import './HomeMainBar.css'
 import QuestionList from './QuestionList';
 
 const HomeMainBar = () => {
-  const questionList = [
-    {
-    id: 1,
-    votes: 1,
-    noOfAnswers: 0,
-    questionTitle: "what is a function?",
-    questionBody: ["javascript", "R", "python"],
-    userPosted: "manav",
-    askedOn:"jan 1"
-    },
-    {
-    id: 2,
-    votes: 0,
-    noOfAnswers: 0,
-    questionTitle: "what is a function?",
-    questionBody: ["javascript", "R", "python"],
-    userPosted: "manav",
-    askedOn:"jan 1"
-  },{
-    id: 3,
-    votes: 0,
-    noOfAnswers: 0,
-    questionTitle: "what is a function?",
-    questionBody: ["javascript", "R", "python"],
-    userPosted: "manav",
-    askedOn:"jan 1"
-    }]
+  const questionList = useSelector(state => state.questionReducer)
+  // console.log(questionList)
+
+  // const questionList = [
+  //   {
+  //   id: 1,
+  //   votes: 1,
+  //   noOfAnswers: 0,
+  //   questionTitle: "what is a function?",
+  //   questionBody: ["javascript", "R", "python"],
+  //   userPosted: "manav",
+  //   askedOn:"jan 1"
+  //   },
+  //   {
+  //   id: 2,
+  //   votes: 0,
+  //   noOfAnswers: 0,
+  //   questionTitle: "what is a function?",
+  //   questionBody: ["javascript", "R", "python"],
+  //   userPosted: "manav",
+  //   askedOn:"jan 1"
+  // },{
+  //   id: 3,
+  //   votes: 0,
+  //   noOfAnswers: 0,
+  //   questionTitle: "what is a function?",
+  //   questionBody: ["javascript", "R", "python"],
+  //   userPosted: "manav",
+  //   askedOn:"jan 1"
+  //   }]
   const user = 1;
 
   const location = useLocation();
@@ -55,11 +59,11 @@ const HomeMainBar = () => {
       </div>
       <div className="questions">
         {
-          questionList === null ?
+          questionList.data === null ?
             <h1>Loading...</h1> :
             <>
-              <p>{questionList.length} questions</p>
-              <QuestionList questionList = {questionList}/>
+              <p>{questionList.data.length} questions</p>
+              <QuestionList questionList = {questionList.data}/>
             </>
         }
       </div>
