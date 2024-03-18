@@ -1,16 +1,19 @@
-import React from "react";
-import { useParams, Link } from "react-router-dom";
+import React, {useState} from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import upVoteImg from "../../assets/sort-up.svg";
 import downVoteImg from "../../assets/sort-down.svg";
 import Avatar from "../../components/avatar/Avatar";
 import DisplayAnswers from "./DisplayAnswers";
 import "./Questions.css";
-import { useSelector } from "react-redux";
+import {postAnswer} from '../../actions/question'
+import { useSelector, useDispatch } from "react-redux";
 
 const Questiondetails = () => {
   const { id } = useParams();
 
   const questionList = useSelector(state => state.questionReducer)
+  const User = useSelector((state) => state.currentUserReducer)
+  const dispatch = useDispatch()
   // console.log(questionList)
 
   // var questionList = [
@@ -72,6 +75,21 @@ const Questiondetails = () => {
   //     ],
   //   },
   // ];
+  const [Answer, setAnswer] = useState("")
+  const navigate = useNavigate()
+  const handlePosAns = (e, answerLength) => {
+    e.preventDefault();
+    if (User === null) {
+      alert("Login or Signup to answer a question.")
+      navigate('/Auth')
+    } else if (Answer === "") {
+      alert("Enter an answer before submitting.")
+    } else {
+      dispatch(postAnswer({ id, noOfAnswers: answerLength + 1, answerBody: Answer, userAnswered: User.result.name }));
+      setAnswer("")
+    }
+
+  }
 
   return (
     <div className="question-details-page">
@@ -139,7 +157,9 @@ const Questiondetails = () => {
                 )}
                 <section className="post-ans-container">
                   <h3>Your Answer</h3>
-                  <form>
+                  <form onSubmit={(e) => {
+                    handlePosAns(e, question.answer.length)
+                  }}>
                     {" "}
                     <textarea name="" id="" cols="30" rows="10"></textarea>
                     <input
