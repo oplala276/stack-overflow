@@ -22,3 +22,13 @@ export const getAllQuestions = async (req, res) => {
         res.status(404).json("questions not found")
     }
 }
+
+export const deleteQuestion = async (req, res) => {
+    const { id: _id } = req.params;
+    try {
+        await Questions.findByIdAndDelete(_id);
+        res.status(200).json("Question deleted Successfully..")
+    } catch (error) {
+        res.status(404).json({message:error.message})
+    }   
+}
