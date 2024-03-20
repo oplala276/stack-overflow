@@ -95,6 +95,7 @@ const Questiondetails = () => {
             noOfAnswers: answerLength + 1,
             answerBody: Answer,
             userAnswered: User.result.name,
+            userId:User.result._id
           })
         );
         setAnswer("");

@@ -13,6 +13,7 @@ export const askQuestion = (questiondata, navigate) => async (dispatch) => {
 
 export const fetchAllQuestions = () => async (dispatch) => {
     try {
+        console.log("fetched data")
         const { data } = await api.getAllQuestions()
         dispatch({type:'FETCH_ALL_QUESTIONS', payload:data})
     } catch (error) {
