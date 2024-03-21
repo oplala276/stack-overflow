@@ -32,6 +32,13 @@ const updateNoOfQuestions = async (_id, noOfAnswers) => {
 export const deleteAns = async (req, res) => {
     const { id: _id } = req.params;
     const { answerId, noOfAnswers } = req.body;
+    
+  if (!mongoose.Types.ObjectId.isValid(_id)) {
+    return res.status(404).send("Question unavailable...");
+  }
+  if (!mongoose.Types.ObjectId.isValid(answerId)) {
+    return res.status(404).send("Answer unavailable...");
+  }
     updateNoOfQuestions(_id, noOfAnswers);
     try {
         await Questions.updateOne(

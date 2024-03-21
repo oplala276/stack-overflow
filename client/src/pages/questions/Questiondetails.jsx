@@ -185,6 +185,7 @@ const Questiondetails = () => {
                       key={question._id}
                       question={question}
                       handleShare={handleShare}
+                    
                     />
                   </section>
                 )}
