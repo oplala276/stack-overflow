@@ -20,3 +20,7 @@ export const deleteAns = (id, answerId, noOfAnswers) => {
     API.patch(`/answer/delete/${id}`,
         { answerId, noOfAnswers });
 }
+
+export const voteQuestion = (id, value, userId) => {
+    API.patch(`/questions/vote/${id}`, {value, userId})
+}

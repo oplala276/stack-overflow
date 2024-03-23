@@ -1,6 +1,4 @@
 import React from "react";
-// import Questiondetails from './Questiondetails'
-// import './Questions.css'
 import { Link, useParams } from "react-router-dom";
 import moment from "moment";
 import Avatar from "../../components/avatar/Avatar";

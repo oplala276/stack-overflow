@@ -34,7 +34,7 @@ export const postAnswer = (answerdata) => async(dispatch) => {
 
 export const deleteQuestion = (id, navigate) => async(dispatch) => {
     try {
-        await api.deleteQuestion(id);
+        api.deleteQuestion(id);
         dispatch(fetchAllQuestions());
         navigate('/');
     } catch (error) {
@@ -44,9 +44,18 @@ export const deleteQuestion = (id, navigate) => async(dispatch) => {
 
 export const deleteAns = (id, answerId, noOfAnswers) => async(dispatch) => {
     try {
-        await api.deleteAns(id, answerId, noOfAnswers);
+        api.deleteAns(id, answerId, noOfAnswers);
         console.log("fetched data")
         dispatch(fetchAllQuestions());
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const voteQuestion = (id, value, userId) =>async(dispatch) => {
+    try {
+        await api.voteQuestion(id, value, userId)
+        dispatch(fetchAllQuestions())
     } catch (error) {
         console.log(error)
     }
