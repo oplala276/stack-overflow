@@ -45,7 +45,7 @@ const AskQuestions = () => {
                   <label htmlFor="ask-ques-tags">
                       <h4>Tags</h4>
                       <p>Add up to 5 tags to describe what your question is about</p>
-                      <input type="text" id='ask-ques-tags' onChange={(e)=>{setQuestionTags(e.target.value.split(' '))}}placeholder='e.g. (xml typescript wordpress)'/>
+                      <input type="text" id='ask-ques-tags' onChange={(e)=>{setQuestionTags(e.target.value.replace(/\s+/g, ' ').trim().split(' '))}}placeholder='e.g. (xml typescript wordpress)'/>
                   </label>
               </div>
               <input type='submit' onClick={handleSubmit} value="Review your question" className="review-btn"/>
