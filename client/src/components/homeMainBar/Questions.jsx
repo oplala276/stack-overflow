@@ -27,8 +27,7 @@ const Questions = ({question}) => {
             asked {moment(question.askedOn).fromNow()} {question.userPosted}
           </div>
         </div>
-      </div>
-      
+      </div>      
     </div>
   )
 }
