@@ -1,11 +1,19 @@
-.main-bar {
+   /* .main-bar .question{
+    float:left;
+    width:68%;
+  } */
+  .main-bar {
     width: calc(100% - 300px - 24px);
+    /* display:flex; */
+    /* width:60%; */
     float: left;
+    /* width:68%; */
     margin: 25px 0px;
     padding: 0;
   }
   
   .main-bar-header {
+    /* width: calc(100% - 300px - 24px);  */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,6 +40,9 @@
   
   .display-question-container {
     min-height: 80px;
+    width:100%;
+    float: left;
+    justify-content: flex-start;
     /* width: calc(100% - 300px - 24px); */
     display: flex;
     align-items: center;

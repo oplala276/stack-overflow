@@ -1,11 +1,11 @@
-import React from 'react'
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import './HomeMainBar.css'
-import QuestionList from './QuestionList';
+import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import "./HomeMainBar.css";
+import QuestionList from "./QuestionList";
 
 const HomeMainBar = () => {
-  const questionList = useSelector(state => state.questionReducer)
+  const questionList = useSelector((state) => state.questionReducer);
   // console.log(questionList)
 
   // const questionList = [
@@ -44,32 +44,37 @@ const HomeMainBar = () => {
       alert("login or signup to ask a question");
       navigate("/Auth");
     } else {
-      navigate("/Askquestions")
+      navigate("/Askquestions");
     }
   };
 
   return (
     <div classNane="main-bar">
       <div className="main-bar-header">
-        {
-          location.pathname === '/' ? <h1>Top Questions</h1> : <h1>All Questions</h1>          
-        }
-        <button onClick={checkAuth}
-         className='ask-btn'>Ask Questions</button>
+        {location.pathname === "/" ? (
+          <h1>Top Questions</h1>
+        ) : (
+          <h1>All Questions</h1>
+        )}
+        <button onClick={checkAuth} className="ask-btn">
+          Ask Questions
+        </button>
       </div>
       <div className="questions">
-        {
-          questionList.data === null ?
-            <h1>Loading...</h1> :
-            <>
-              <p>{questionList.data.length} questions</p>
-              <QuestionList questionList = {questionList.data}/>
-            </>
-        }
+        {questionList.data === null ? (
+        // {questionList === null ? (
+          <h1>Loading...</h1>
+        ) : (
+          <>
+            {/* <p>{questionList.length} questions</p>
+            <QuestionList questionList={questionList} /> */}
+            <p>{questionList.data.length} questions</p>
+            <QuestionList questionList={questionList.data} />
+          </>
+        )}
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default HomeMainBar
+export default HomeMainBar;
