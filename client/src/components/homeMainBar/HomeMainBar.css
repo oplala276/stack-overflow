@@ -40,10 +40,10 @@
   
   .display-question-container {
     min-height: 80px;
-    width:100%;
+    /* width:100%; */
     float: left;
     justify-content: flex-start;
-    /* width: calc(100% - 300px - 24px); */
+    width: calc(100% - 300px - 24px);
     display: flex;
     align-items: center;
     background-color: #fdf7e2;

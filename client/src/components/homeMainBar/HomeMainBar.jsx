@@ -62,7 +62,7 @@ const HomeMainBar = () => {
       </div>
       <div className="questions">
         {questionList.data === null ? (
-        // {questionList === null ? (
+        //  {questionList === null ? (
           <h1>Loading...</h1>
         ) : (
           <>
