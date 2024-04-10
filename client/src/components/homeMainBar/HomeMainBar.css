@@ -3,7 +3,7 @@
     width:68%;
   } */
   .main-bar {
-    width: calc(100% - 300px - 24px);
+    width: calc(100% - 300px - 25px);
     /* display:flex; */
     /* width:60%; */
     float: left;
@@ -40,7 +40,6 @@
   
   .display-question-container {
     min-height: 80px;
-    /* width:100%; */
     float: left;
     justify-content: flex-start;
     width: calc(100% - 300px - 24px);
