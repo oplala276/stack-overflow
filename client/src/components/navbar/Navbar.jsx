@@ -6,24 +6,30 @@ import logo from '../../assets/logo.png'
 import Search from '../../assets/search-solid.svg'
 import Avatar from '../../components/avatar/Avatar'
 import { setCurrentUser } from '../../actions/currentUser'
-// import {currentUserReducer} from '../../reducers/currentUser'
-// import Button from '../../components/button/Button'
-
+import {jwtDecode} from 'jwt-decode';
 
 const Navbar = () => {
   var User = useSelector((state)=>(state.currentUserReducer))
 
   const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
-  }, [dispatch])
-
   const navigate = useNavigate();
   const handleLogout = () => {
     dispatch({ type: 'LOGOUT' });
     navigate('/');
     dispatch(setCurrentUser(null))
   }
+  useEffect(() => {
+    const token = User?.token;
+    if (token) {
+      const decodeToken = jwtDecode(token);
+      // console.log(decodeToken.exp)
+      if (decodeToken.exp * 1000 < new Date().getTime()) {
+        handleLogout();
+      }
+    }
+      dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
+    }, [User?.token, dispatch])
+  
   
 
   return (
