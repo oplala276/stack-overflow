@@ -125,7 +125,7 @@ const Questiondetails = () => {
   return (
     <div className="question-details-page">
       {questionList.data === null ? (
-        <h1>No question is there...</h1>
+        <h1>Loading...</h1>
       ) : (
         <>
           {questionList.data
@@ -179,7 +179,7 @@ const Questiondetails = () => {
                             style={{ color: "#0086d8" }}
                           >
                             <Avatar backgroundColor="orange" px="8px" py="5px">
-                              {question.userPosted.charAt(0).toUpperCase()}
+                              {question?.userPosted[0].toUpperCase()}
                             </Avatar>
                             <div>{question.userPosted}</div>
                           </Link>

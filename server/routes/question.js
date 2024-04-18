@@ -4,7 +4,7 @@ import auth from '../middlewares/auth.js'
 
 const router = express();
 
-router.post('/Ask', auth,  AskQuestion);
+router.post('/Ask', auth, AskQuestion);
 router.get('/get', getAllQuestions);
 router.delete('/delete/:id', auth, deleteQuestion);
 router.patch('/vote/:id', auth,  voteQuestion)
