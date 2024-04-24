@@ -115,11 +115,21 @@ const Questiondetails = () => {
   };
 
   const handleUpVote = () => {
-    dispatch(voteQuestion(id, 'upVote', User.result._id))
+    if (User === null) {
+      alert("Login or Signup to upvote a question.");
+      navigate("/Auth");
+    } else {
+      dispatch(voteQuestion(id, 'upVote', User.result._id))
+    }
   }
 
   const handledownVote = () => {
-    dispatch(voteQuestion(id, 'downVote', User.result._id))      
+    if (User === null) {
+      alert("Login or Signup to upvote a question.");
+      navigate("/Auth");
+    } else {
+      dispatch(voteQuestion(id, 'downVote', User.result._id))      
+    }
   }
 
   return (

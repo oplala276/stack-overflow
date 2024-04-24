@@ -28,6 +28,8 @@ export const deleteAns = (id, answerId, noOfAnswers) => {
         { answerId, noOfAnswers });
 }
 
+export const getAllUsers = () => API.get("/user/getAllUsers");
+
 export const voteQuestion = (id, value, userId) => {
     API.patch(`/questions/vote/${id}`, {value, userId})
 }

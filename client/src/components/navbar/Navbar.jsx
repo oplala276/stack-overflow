@@ -35,12 +35,12 @@ const Navbar = () => {
   return (
     <nav className='main-nav'>
       <div className="navbar">
-        <Link to = '/' className='nav-item nav-btn'>
+        <Link to = '/' className='nav-item nav-logo'>
           <img src={logo} alt = 'logo'/>
         </Link>
-          <Link to ='/' className = 'nav-item nav-btn'>About</Link>
-          <Link to ='/' className = 'nav-item nav-btn'>Products</Link>
-          <Link to ='/' className = 'nav-item nav-btn'>For Teams</Link>
+          <Link to ='/' className = 'nav-item nav-btn res-nav'>About</Link>
+          <Link to ='/' className = 'nav-item nav-btn res-nav'>Products</Link>
+          <Link to ='/' className = 'nav-item nav-btn res-nav'>For Teams</Link>
           <form >
             <input type='text' placeholder='Search...'/>
             <img src={Search} alt="search" width = '18' className='search-icon'/>
@@ -48,7 +48,7 @@ const Navbar = () => {
           {User===null?
             <Link to ='/Auth' className='nav-item nav-links'>Log in</Link>:
             <>
-            <Link to='/Profile' style={{ color: 'White', textDecoration: "none" }}><Avatar backgroundColor='#009dff' px='15px' py='10px' color='white' fontsize='10px' borderRadius='50%'>{User.result.name.charAt(0).toUpperCase() }</Avatar></Link>
+            <Avatar backgroundColor='#009dff' px='15px' py='10px' color='white' fontsize='10px' borderRadius='50%'><Link to='/Profile' style={{ color: 'White', textDecoration: "none" }}>{User.result.name.charAt(0).toUpperCase() }</Link></Avatar>
               <button className='nav-item nav-links' onClick = {handleLogout}>Log Out</button>
             </>
           }
