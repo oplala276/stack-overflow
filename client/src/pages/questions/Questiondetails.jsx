@@ -6,7 +6,7 @@ import copy from "copy-to-clipboard";
 
 import upVoteImg from "../../assets/sort-up.svg";
 import downVoteImg from "../../assets/sort-down.svg";
-import Avatar from "../../components/avatar/Avatar";
+import Avatar from "../../components/Avatar/Avatar";
 import DisplayAnswers from "./DisplayAnswers";
 import "./Questions.css";
 import { postAnswer, deleteQuestion, voteQuestion } from "../../actions/question";
@@ -80,6 +80,7 @@ const Questiondetails = () => {
   // ];
   const [Answer, setAnswer] = useState("");
   const navigate = useNavigate();
+
   const handlePosAns = (e, answerLength) => {
     e.preventDefault();
     if (User === null) {
@@ -184,7 +185,7 @@ const Questiondetails = () => {
                         <div>
                           <p>asked {moment(question.askedOn).fromNow()}</p>
                           <Link
-                            to={`/User/${question.userId}`}
+                            to={`/Users/${question.userId}`}
                             className="user-link"
                             style={{ color: "#0086d8" }}
                           >

@@ -49,7 +49,7 @@ const HomeMainBar = () => {
   };
 
   return (
-    <div classNane="main-bar">
+    <div className="main-bar">
       <div className="main-bar-header">
         {location.pathname === "/" ? (
           <h1>Top Questions</h1>

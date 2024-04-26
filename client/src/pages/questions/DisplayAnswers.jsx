@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import moment from "moment";
-import Avatar from "../../components/avatar/Avatar";
+import Avatar from "../../components/Avatar/Avatar";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteAns } from "../../actions/question";
 
@@ -33,7 +33,7 @@ const DisplayAnswers = ({ question, handleShare }) => {
             <div>
               <p>answered {moment(ans.answeredOn).fromNow()}</p>
               <Link
-                to={`/User/${question.userId}`}
+                to={`/Users/${ans.userId}`}
                 className="user-link"
                 style={{ color: "#0086d8" }}
               >
