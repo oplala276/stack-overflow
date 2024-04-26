@@ -5,7 +5,6 @@ import cors from 'cors'
 import userRoutes from './routes/user.js'
 import questionRoutes from './routes/question.js'
 import answerRoutes from './routes/answer.js'
-// import connectDB from './connection.js'
 
 const app = express();
 dotenv.config()
