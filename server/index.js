@@ -22,8 +22,8 @@ app.use('/questions', questionRoutes);
 app.use('/answer', answerRoutes)
 
 
-const PORT = 5000
+const port = process.env.PORT || 5000
 
 const BASE_URL = process.env.CONNECTION_URL
 
-mongoose.connect(BASE_URL).then(() => app.listen(PORT, () => { console.log(`server is running on ${PORT}`) })).catch((err) => console.log(err.message))
+mongoose.connect(BASE_URL).then(() => app.listen(port, () => { console.log(`server is running on ${port}`) })).catch((err) => console.log(err.message))
