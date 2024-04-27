@@ -1,4 +1,4 @@
-import './Navbar.css'
+import './navbar.css'
 import React, {useEffect} from 'react'
 import { useSelector, useDispatch} from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
