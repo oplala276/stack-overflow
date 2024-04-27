@@ -1,6 +1,6 @@
 import React from 'react'
-import LeftSideBar from '../../components/LeftSideBar/LeftSideBar'
-import RightSideBar from '../../components/RightSideBar/RightSideBar'
+import LeftSideBar from '../../components/leftSideBar/LeftSideBar'
+import RightSideBar from '../../components/rightSideBar/RightSideBar'
 import Questiondetails from './Questiondetails'
 import '../../App.css'
 

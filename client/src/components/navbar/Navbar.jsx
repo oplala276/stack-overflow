@@ -4,7 +4,7 @@ import { useSelector, useDispatch} from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import logo from '../../assets/logo.png'
 import Search from '../../assets/search-solid.svg'
-import Avatar from '../Avatar/Avatar'
+import Avatar from '../avatar/Avatar'
 import { setCurrentUser } from '../../actions/currentUser'
 import {jwtDecode} from 'jwt-decode';
 
@@ -26,7 +26,8 @@ const Navbar = () => {
         handleLogout();
       }
     }
-      dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
+    dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
+    // eslint-disable-next-line
     }, [User?.token, dispatch])
   
   

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import moment from "moment";
-import Avatar from "../../components/Avatar/Avatar";
+import Avatar from "../../components/avatar/Avatar";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteAns } from "../../actions/question";
 

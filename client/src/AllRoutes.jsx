@@ -1,12 +1,12 @@
 import React from 'react'
 import {Routes, Route} from 'react-router-dom'
-import Home from './pages/Home/Home'
-import Auth from './pages/Auth/Auth'
-import Questions from './pages/Questions/Questions'
-import AskQuestions from './pages/AskQuestions/AskQuestions'
-import DisplayQuestions from './pages/Questions/DisplayQuestions'
-import Tags from './pages/Tags/Tags'
-import Users from "./pages/Users/Users";
+import Home from './pages/home/Home'
+import Auth from './pages/auth/Auth'
+import Questions from './pages/questions/Questions'
+import AskQuestions from './pages/askQuestions/AskQuestions'
+import DisplayQuestions from './pages/questions/DisplayQuestions'
+import Tags from './pages/tags/Tags'
+import Users from "./pages/users/Users";
 import UserProfile from './pages/UserProfile/UserProfile'
 
 

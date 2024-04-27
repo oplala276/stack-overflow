@@ -6,7 +6,7 @@ import copy from "copy-to-clipboard";
 
 import upVoteImg from "../../assets/sort-up.svg";
 import downVoteImg from "../../assets/sort-down.svg";
-import Avatar from "../../components/Avatar/Avatar";
+import Avatar from "../../components/avatar/Avatar";
 import DisplayAnswers from "./DisplayAnswers";
 import "./Questions.css";
 import { postAnswer, deleteQuestion, voteQuestion } from "../../actions/question";
