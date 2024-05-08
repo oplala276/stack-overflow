@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
+import { useParams, Link, useNavigate} from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import moment from "moment";
 import copy from "copy-to-clipboard";
@@ -9,7 +9,7 @@ import downVoteImg from "../../assets/sort-down.svg";
 import Avatar from "../../components/avatar/Avatar";
 import DisplayAnswers from "./DisplayAnswers";
 import "./Questions.css";
-import { postAnswer, deleteQuestion, voteQuestion } from "../../actions/question";
+import { postAnswer, deleteQuestion, voteQuestion} from "../../actions/question";
 
 const Questiondetails = () => {
   const { id } = useParams();
@@ -104,11 +104,10 @@ const Questiondetails = () => {
     }
   };
 
-  const location = useLocation();
-  const url = "http://localhost:3000";
+  const url = window.location.href;;
   const handleShare = () => {
-    copy(url + location.pathname);
-    alert("Copied URL: \n" + url + location.pathname);
+    copy(url);
+    alert("Copied URL: \n" + url);
   };
 
   const handledelete = () => {
@@ -138,7 +137,7 @@ const Questiondetails = () => {
       {questionList.data === null ? (
         <h1>Loading...</h1>
       ) : (
-        <>
+          <>
           {questionList.data
             .filter((question) => question._id === id)
             .map((question) => (
@@ -163,8 +162,8 @@ const Questiondetails = () => {
                         onClick={handledownVote}
                       />
                     </div>
-                    <div style={{ width: "100%" }}>
-                      <p className="question-body">{question.questionBody}</p>
+                    <div style={{ width: "94%" }}>
+                      <div className="question-body">{question.questionBody}</div>
                       <div className="question-details-tags">
                         {question.questionTags.map((tag) => (
                           <p key={tag}>{tag}</p>
@@ -189,7 +188,7 @@ const Questiondetails = () => {
                             className="user-link"
                             style={{ color: "#0086d8" }}
                           >
-                            <Avatar backgroundColor="orange" px="8px" py="5px">
+                            <Avatar backgroundColor="orange" px="8px" py="5px" borderRadius="5px">
                               {question?.userPosted[0].toUpperCase()}
                             </Avatar>
                             <div>{question.userPosted}</div>

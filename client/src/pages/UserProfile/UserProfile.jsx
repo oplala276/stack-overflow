@@ -11,16 +11,16 @@ import EditProfileForm from "./EditProfileForm";
 import ProfileBio from "./ProfileBio";
 import "./UsersProfile.css";
 
-const UserProfile = ({ slideIn, handleSlideIn }) => {
+const UserProfile = () => {
   const { id } = useParams();
   const users = useSelector((state) => state.usersReducer);
   const currentProfile = users.filter((user) => user._id === id)[0];
   const currentUser = useSelector((state) => state.currentUserReducer);
   const [Switch, setSwitch] = useState(false);
-
+  
   return (
     <div className="home-container-1">
-      <LeftSidebar slideIn={slideIn} handleSlideIn={handleSlideIn} />
+      <LeftSidebar/>
       <div className="home-container-2">
         <section>
           <div className="user-details-container">
@@ -28,9 +28,11 @@ const UserProfile = ({ slideIn, handleSlideIn }) => {
               <Avatar
                 backgroundColor="purple"
                 color="white"
-                fontSize="50px"
-                px="40px"
-                py="30px"
+                px="0px"
+                py="0px"
+                width='90px'
+                height='90px'
+                fontSize='55px'
               >
                 {currentProfile?.name.charAt(0).toUpperCase()}
               </Avatar>
@@ -49,7 +51,7 @@ const UserProfile = ({ slideIn, handleSlideIn }) => {
                 onClick={() => setSwitch(true)}
                 className="edit-profile-btn"
               >
-                 <FontAwesomeIcon icon={faPen} />Edit Profile
+                 <FontAwesomeIcon icon={faPen} /> Edit Profile
               </button>
               
             )}

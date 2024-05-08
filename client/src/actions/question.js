@@ -26,6 +26,7 @@ export const postAnswer = (answerdata) => async(dispatch) => {
         const { data } = await api.postAnswer(id, noOfAnswers, answerBody, userAnswered, userId);
         dispatch({ type: 'POST_ANSWER', payload: data });
         dispatch(fetchAllQuestions());
+        console.log('done');
     } catch (error) {
         console.log(error)
     }

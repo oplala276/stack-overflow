@@ -32,6 +32,7 @@
   .question-details-container .question-body {
     line-height: 22px;
     white-space: pre-line;
+    word-wrap: break-word;
   }
   
   .question-details-container .question-details-tags {

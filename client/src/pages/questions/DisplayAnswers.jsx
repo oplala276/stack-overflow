@@ -41,7 +41,7 @@ const DisplayAnswers = ({ question, handleShare }) => {
                   backgroundColor="lightgreen"
                   px="8px"
                   py="5px"
-                  borderRadius="4px"
+                  borderRadius="5px"
                 >
                   {ans.userAnswered.charAt(0).toUpperCase()}
                 </Avatar>

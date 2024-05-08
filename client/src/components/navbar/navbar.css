@@ -42,20 +42,20 @@
 }
 .navbar form{
   flex-grow: 1;
-  padding: 0px 12px;
+  padding: 0px 8px;
   position: relative;
 }
 .navbar form input{
   min-width: 90%;
   margin: 0%;
-  padding: 8px 10px 8px 32px;
+  padding: 8px 15px 6px 30px;
   font-size: 13px;
   border: solid 1px #000000e3;
   border-radius: 3px;
 }
 .navbar form .search-icon{
   position: absolute;
-  left:25px;
+  left:15px;
   top: 8px;
 }
 .nav-links{
@@ -64,6 +64,7 @@
   border-radius: 3px;
   background-color: #e7f8fe;
   cursor: pointer;
+  margin-left:12px;
 }
 .nav-links:hover{
   background-color: #d3e4eb;

@@ -1,6 +1,8 @@
 import axios from 'axios'
+const API_LINK = process.env.REACT_APP_API_URL ;
 
-const API = axios.create({ baseURL: 'https://stack-overflow-api-sydt.onrender.com' })
+const API = axios.create({ baseURL: API_LINK })
+console.log(API_LINK)
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem('Profile')) {
