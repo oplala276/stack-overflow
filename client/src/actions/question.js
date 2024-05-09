@@ -26,7 +26,6 @@ export const postAnswer = (answerdata) => async(dispatch) => {
         const { data } = await api.postAnswer(id, noOfAnswers, answerBody, userAnswered, userId);
         dispatch({ type: 'POST_ANSWER', payload: data });
         dispatch(fetchAllQuestions());
-        console.log('done');
     } catch (error) {
         console.log(error)
     }
@@ -45,7 +44,6 @@ export const deleteQuestion = (id, navigate) => async(dispatch) => {
 export const deleteAns = (id, answerId, noOfAnswers) => async(dispatch) => {
     try {
         api.deleteAns(id, answerId, noOfAnswers);
-        console.log("fetched data")
         dispatch(fetchAllQuestions());
     } catch (error) {
         console.log(error)

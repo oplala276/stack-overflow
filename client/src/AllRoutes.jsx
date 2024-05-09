@@ -10,23 +10,23 @@ import Users from "./pages/users/Users";
 import UserProfile from './pages/UserProfile/UserProfile'
 
 
-const AllRoutes = () => {
+const AllRoutes = ({ slideIn, handleSlideIn }) => {
   return (
     <Routes>
-      <Route exact path = '/' Component={Home}/>
-      <Route exact path = '/Auth' Component={Auth}/>
-      <Route exact path='/questions' Component={Questions} />
-      <Route exact path='/Askquestions' Component={AskQuestions} />
-      <Route path='questions/:id' Component={DisplayQuestions} />
-      <Route path='questions/questions/:id' Component={DisplayQuestions} />
-      <Route path='Tags' Component={Tags} />
+      <Route path = '/' element={<Home slideIn={slideIn} handleSlideIn={handleSlideIn} />}/>
+      <Route path = '/Auth' element={<Auth/>}/>
+      <Route path='/questions' element={<Questions slideIn={slideIn} handleSlideIn={handleSlideIn} />} />
+      <Route path='/Askquestions' element={<AskQuestions/>} />
+      <Route path='/questions/:id' element={<DisplayQuestions slideIn={slideIn} handleSlideIn={handleSlideIn}/>} />
+      <Route path='/questions/questions/:id' element={<DisplayQuestions slideIn={slideIn} handleSlideIn={handleSlideIn}/>} />
+      <Route path='/Tags' element={<Tags slideIn={slideIn} handleSlideIn={handleSlideIn} />} />
       <Route
         path="/Users"
-        Component={Users}
+        element={<Users slideIn={slideIn} handleSlideIn={handleSlideIn} />}
       />
       <Route
         path="/Users/:id"
-        Component={UserProfile}
+        element={<UserProfile slideIn={slideIn} handleSlideIn={handleSlideIn} />}
       />
     </Routes>
   )

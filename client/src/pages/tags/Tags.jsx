@@ -3,7 +3,7 @@ import LeftSideBar from '../../components/leftSideBar/LeftSideBar'
 import TagsList from './TagsList';
 import './tags.css'
 
-const Tags = () => {
+const Tags = ({ slideIn, handleSlideIn }) => {
     const tagsList = [
         {
           tagName: "javascript",
@@ -59,7 +59,7 @@ const Tags = () => {
       
   return (
       <div className="home-container-1">
-          <LeftSideBar/>
+          <LeftSideBar slideIn={slideIn} handleSlideIn={handleSlideIn}/>
           <div className="home-container-2">
               <h1 className="tags-h1">
                   Tags

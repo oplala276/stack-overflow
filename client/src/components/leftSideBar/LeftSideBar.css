@@ -1,4 +1,4 @@
-.left-sidebar {
+  .left-sidebar {
     width: 164px;
     box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
     background-color: white;
@@ -9,9 +9,16 @@
     font-size: 13px;
   }
   
+  .nav-btn1{
+    background-color: inherit;
+    width: 100%;
+    border: none;
+    padding: 0%;
+  }
+  
   .side-nav {
     height: auto;
-    max-width: 124%;
+    max-width: 100%;
     position: sticky;
     margin: 50px 0px;
     padding: 20px 0px;
@@ -37,7 +44,7 @@
   
   .side-nav-links:hover {
     color: black;
-  }
+  } 
   
   .active {
     font-weight: bolder;
@@ -53,4 +60,3 @@
       z-index: 10;
     }
   }
-  

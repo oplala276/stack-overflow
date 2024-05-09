@@ -5,10 +5,11 @@ import { Link, useNavigate } from 'react-router-dom'
 import logo from '../../assets/logo.png'
 import Search from '../../assets/search-solid.svg'
 import Avatar from '../avatar/Avatar'
+import Bars from '../../assets/bars-solid.svg'
 import { setCurrentUser } from '../../actions/currentUser'
 import {jwtDecode} from 'jwt-decode';
 
-const Navbar = () => {
+const Navbar = ({ handleSlideIn }) => {
   var User = useSelector((state)=>(state.currentUserReducer))
 
   const dispatch = useDispatch()
@@ -30,17 +31,19 @@ const Navbar = () => {
     // eslint-disable-next-line
     }, [User?.token, dispatch])
   
-  
 
   return (
     <nav className='main-nav'>
       <div className="navbar">
+      <button className="slide-in-icon" onClick={() => handleSlideIn()}>
+          <img src={Bars} alt="bars" width="15" />
+        </button>
         <Link to = '/' className='nav-item nav-logo'>
           <img src={logo} alt = 'logo'/>
         </Link>
-          <Link to ='/' className = 'nav-item nav-btn'>About</Link>
-          <Link to ='/' className = 'nav-item nav-btn'>Products</Link>
-          <Link to ='/' className = 'nav-item nav-btn'>For Teams</Link>
+          <Link to ='/' className = 'nav-item nav-btn res-nav'>About</Link>
+          <Link to ='/' className = 'nav-item nav-btn res-nav'>Products</Link>
+          <Link to ='/' className = 'nav-item nav-btn res-nav'>For Teams</Link>
           <form >
             <input type='text' placeholder='Search...'/>
             <img src={Search} alt="search" width = '18' className='search-icon'/>
