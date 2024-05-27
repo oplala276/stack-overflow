@@ -22,3 +22,12 @@ export const login = (authdata, navigate) => async(dispatch) => {
         console.log(err)
     }
 } 
+
+export const forgot = (maildata, navigate) => async (dispatch) => {
+    try {
+        await api.sendPassword(maildata);
+        navigate('/');
+    } catch (err){
+        console.log(err)
+    }
+}

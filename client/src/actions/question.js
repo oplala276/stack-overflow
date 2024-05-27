@@ -58,3 +58,13 @@ export const voteQuestion = (id, value, userId) =>async(dispatch) => {
         console.log(error)
     }
 }
+
+export const userAuthentication = (email, userOTP) => async (dispatch) => {
+    try {
+        await api.userAuthentication(email, userOTP);
+        // dispatch()
+    }
+    catch (error) {
+        console.log(error);
+    }
+}

@@ -14,7 +14,11 @@ export const logIn = (authdata) => API.post('/user/login', authdata);
 
 export const signUp = (authdata) => API.post('/user/signup', authdata);
 
-export const postQuestion = (questiondata) => API.post('/questions/Ask', questiondata);
+export const postQuestion = (questiondata) => API.post('/questions/ask', questiondata, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
 
 export const getAllQuestions = () =>API.get('/questions/get')
 
@@ -35,5 +39,12 @@ export const updateProfile = (id, updateData) =>
   API.patch(`/user/update/${id}`, updateData);
 
 export const voteQuestion = (id, value, userId) => {
-    API.patch(`/questions/vote/${id}`, {value, userId})
+    API.patch(`/questions/vote/${id}`, { value, userId });
+}
+
+export const sendPassword = (email) => {
+    API.put('/user/account-recovery', email);
+}
+export const userAuthentication = (otpData) => {
+    API.post('/user/authenticate', otpData);
 }

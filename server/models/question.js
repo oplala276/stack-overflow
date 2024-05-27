@@ -36,6 +36,9 @@ const QuestionSchema = mongoose.Schema({
         type: Date,
         default:Date.now
     },
+    videoFile: {
+        type: String
+    },
     answer: [{
         answerBody: String,
         userAnswered: String,

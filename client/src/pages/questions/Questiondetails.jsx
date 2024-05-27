@@ -179,6 +179,9 @@ const Questiondetails = () => {
                               delete
                             </button>
                           )}
+                          {
+                            question.videoFile && <a href={`${question.videoFile}`} target="_blank" rel="noopener noreferrer" style={{textDecoration:'none', color:'gray'}}><i>Video Explanation</i></a>
+                          }
                         </div>
 
                         <div>

@@ -89,6 +89,17 @@
     font-size: 13px;
     cursor: pointer;
   }
+  .forgot-btn{
+    background-color: #4c52d9;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 7px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 15px;
+    height: 38px;
+    width: calc(100% - 5px);
+  }
   
   @media screen and (max-width: 820px) {
     .auth-container-1 {

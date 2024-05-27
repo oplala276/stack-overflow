@@ -1,5 +1,13 @@
 import mongoose from 'mongoose'
 
+const loginHistorySchema = new mongoose.Schema({
+    browser: String,
+    os: String,
+    device: String,
+    ip: String,
+    loginTime: { type: Date, default: Date.now },
+  });
+
 const userSchema = mongoose.Schema({
     name: {
         type: String,
@@ -19,6 +27,7 @@ const userSchema = mongoose.Schema({
     tags: {
         type: [String],
     },
+    loginHistory: [loginHistorySchema],
     joinedOn: {
         type: Date,
         default: Date.now
