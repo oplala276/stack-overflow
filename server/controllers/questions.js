@@ -4,7 +4,8 @@ import mongoose from 'mongoose'
 export const AskQuestion = async (req, res) => {
     const { questionTitle, questionBody, questionTags, userPosted, userId } = req.body;
     const videoFile = req.body.videoFile;
-    const postQuestion = new Questions({ questionTitle, questionBody, questionTags, userPosted, userId, videoFile: videoFile||null, upVote: videoFile?1:0});
+    // , upVote: videoFile?1:0
+    const postQuestion = new Questions({ questionTitle, questionBody, questionTags, userPosted, userId, videoFile: videoFile||null});
     // console.log(postQuestion)
     try {
         await postQuestion.save();

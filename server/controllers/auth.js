@@ -25,19 +25,19 @@ export const signup = async (req, res) => {
 export const login = async (req, res) => {
     const { email, password } = req.body;
     const loginInfo = req.loginInfo;
-    const loginOS = loginInfo.os;
-    console.log(loginOS)
+    // const loginOS = loginInfo.os;
+    // console.log(loginOS)
     try {
-    const existingUser = await user.findOne({ email });
+        const existingUser = await user.findOne({ email });
     if (!existingUser) {
         res.status(404).json({message:"User don't exist"})
         }
-        existingUser.loginHistory.push(loginInfo);
-        await existingUser.save();
-        const isPasswordCrt = await bcrypt.compare(password, existingUser.password);
     if (!isPasswordCrt) {
         res.status(400).json({message:"Invalid credential"})
     }
+    existingUser.loginHistory.push(loginInfo);
+    await existingUser.save();
+    const isPasswordCrt = await bcrypt.compare(password, existingUser.password);
     const token = jwt.sign({ email: existingUser.email, id: existingUser._id}, process.env.JWT_SECRET, {expiresIn:'1h'})
     res.status(200).json({result:existingUser, token})
     } catch (error) {

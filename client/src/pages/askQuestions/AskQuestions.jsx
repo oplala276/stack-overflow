@@ -123,11 +123,11 @@ const AskQuestions = () => {
           } else {
             setVideoFile(file);
           }
-          const currentHour = new Date().getHours();
-          if (currentHour < 14 || currentHour > 19) {
-            alert('You can upload videos between 2 PM and 7 PM');
-            e.target.value = null
-          }
+          // const currentHour = new Date().getHours();
+          // if (currentHour < 14 || currentHour > 19) {
+          //   alert('You can upload videos between 2 PM and 7 PM');
+          //   e.target.value = null
+          // }
         };
         video.src = URL.createObjectURL(file);
       } 
